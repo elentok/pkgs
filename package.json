@@ -1,0 +1,14 @@
+{
+  "name": "pkgs",
+  "version": "1.0.0",
+  "description": "Package tracker",
+  "main": "index.js",
+  "author": "David Elentok <3david@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^4.5.0"
+  },
+  "dependencies": {
+    "js-yaml": "^3.9.1"
+  }
+}
