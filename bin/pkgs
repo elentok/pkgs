@@ -1,0 +1,12 @@
+#!/usr/bin/env node
+
+const express = require("express");
+const app = express();
+
+app.get("/", (req, res) => {
+  res.send("Hello World :)");
+});
+
+app.listen(4321, () => {
+  console.log("Packages tracking server listening on port 4321");
+});
