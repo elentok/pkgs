@@ -2,14 +2,24 @@
 
 const express = require("express");
 const morgan = require("morgan");
+const Database = require("../lib/database");
 
 const app = express();
 
 app.use(morgan("tiny"));
+app.use("/assets", express.static("assets"));
 app.set("view engine", "pug");
 
 app.get("/", (req, res) => {
-  res.render("index");
+  const db = new Database();
+  db
+    .getPending()
+    .then(packages => {
+      res.render("index", { packages });
+    })
+    .catch(error => {
+      res.render("error", { error });
+    });
 });
 
 app.listen(4321, () => {

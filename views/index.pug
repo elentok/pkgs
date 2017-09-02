@@ -1,9 +1,12 @@
-doctype html
-html
-  head
-    title Package Tracker
-    meta(charset="UTF-8")
-    meta(name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0")
+extends layout
 
-  body
-    h1 Package Tracker
+block content
+  h1 Package Tracker
+
+  each pkg in packages
+    .p-package
+      .p-package__name= pkg.name
+      .p-package__date= pkg.getTimeAgo()
+      .p-package__store= pkg.store
+      if pkg.tracking
+        .p-package__tracking= pkg.tracking
