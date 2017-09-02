@@ -1,8 +1,11 @@
 #!/usr/bin/env node
 
 const express = require("express");
+const morgan = require("morgan");
+
 const app = express();
 
+app.use(morgan("tiny"));
 app.set("view engine", "pug");
 
 app.get("/", (req, res) => {
