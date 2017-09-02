@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "express": "^4.15.4",
-    "js-yaml": "^3.9.1"
+    "js-yaml": "^3.9.1",
+    "pug": "^2.0.0-rc.3"
   }
 }
