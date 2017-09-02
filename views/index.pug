@@ -6,7 +6,8 @@ block content
   each pkg in packages
     .p-package
       .p-package__name= pkg.name
-      .p-package__date= pkg.getTimeAgo()
-      .p-package__store= pkg.store
-      if pkg.tracking
-        .p-package__tracking= pkg.tracking
+      .p-package__when= pkg.getTimeAgo()
+      .p-package__bottom
+        if pkg.tracking
+          .p-package__tracking= pkg.tracking
+        .p-package__store= pkg.store
