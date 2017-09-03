@@ -1,0 +1,33 @@
+#!/usr/bin/env node
+
+const fs = require("fs");
+const { execSync } = require("child_process");
+
+if (!fs.existsSync("build")) {
+  fs.mkdir("build");
+}
+
+const HEADER = `<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bookmarklets</title>
+  </head>
+  <body>
+`;
+
+const FOOTER = `</body>
+</html>
+`;
+
+const stream = fs.createWriteStream("build/bookmarklets.html");
+stream.write(HEADER);
+
+fs.readdirSync("bookmarklets").forEach(file => {
+  const body = execSync(
+    `node_modules/.bin/uglifyjs bookmarklets/${file}`
+  ).toString();
+
+  stream.write(`  <a href="javascript:${escape(body)}">${file}</a>\n`);
+});
+
+stream.end(FOOTER);
