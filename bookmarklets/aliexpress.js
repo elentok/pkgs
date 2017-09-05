@@ -19,15 +19,23 @@
   }
 
   function parseOrder(el) {
-    var elements = el.querySelectorAll(".order-head .order-info .info-body");
-    var id = elements[0];
-    var date = elements[1];
+    var head = el.querySelector(".order-head");
+
+    var orderInfo = head.querySelectorAll(".order-info .info-body");
+    var id = orderInfo[0];
+    var date = orderInfo[1];
+
+    var sellerName = head.querySelector(".store-info .first-row .info-body");
+    var amount = el.querySelector(".order-amount .amount-num");
 
     var items = Array.from(el.querySelectorAll(".order-body")).map(parseItem);
 
     return {
       id: id.innerText,
       date: new Date(date.innerText),
+      store: "aliexpress",
+      seller: sellerName.innerText,
+      amount: amount.innerText,
       items: items
     };
   }
