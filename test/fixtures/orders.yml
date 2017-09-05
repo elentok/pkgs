@@ -1,0 +1,14 @@
+---
+"Order #1":
+  store: amazon
+  date: 2017-01-10
+  tracking: AGSIPNJ0123456789
+  items:
+    - id: 123
+      title: "Item #1"
+
+"Order #2":
+  store: ebay
+  date: 2017-01-09
+  tracking: RF123456789CN
+  status: Waiting For Pickup
